@@ -3,6 +3,7 @@
   "version": "11.0.7",
   "description": "Most modern mobile touch slider and framework with hardware accelerated transitions",
   "type": "module",
+  "main": "dist/js/swiper.js",
   "scripts": {
     "build": "node scripts/build",
     "build:prod": "node scripts/build --prod",
@@ -21,7 +22,8 @@
     "release": "npm run validate && node ./scripts/release",
     "test": "npm run validate && npm run build:prod",
     "changelog": "npx conventional-changelog -p angular -i CHANGELOG.md -u -s",
-    "build-sponsors": "node scripts/build-sponsors.js"
+    "build-sponsors": "node scripts/build-sponsors.js",
+    "prepare": "npm run build"
   },
   "repository": {
     "type": "git",
