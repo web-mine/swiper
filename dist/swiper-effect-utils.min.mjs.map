@@ -1,13 +1,1 @@
-/**
- * Swiper 11.0.7
- * Most modern mobile touch slider and framework with hardware accelerated transitions
- * https://swiperjs.com
- *
- * Copyright 2014-2024 Vladimir Kharlampidi
- *
- * Released under the MIT License
- *
- * Released on: March 20, 2024
- */
-
 {"version":3,"file":"swiper-effect-utils.mjs.mjs","names":["c","e","g"],"sources":["0"],"mappings":";;;;;;;;;;;;OAYSA,sBAAyB,wCACzBC,oBAAuB,sCACvBA,sBAAyB,wCACzBA,oCAAuC,wDACvCC,6BAAgC"}

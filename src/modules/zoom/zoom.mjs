@@ -534,9 +534,9 @@ export default function Zoom({ swiper, extendParams, on, emit }) {
       gesture.originY = 0;
     }
     gesture.imageWrapEl.style.transitionDuration = '300ms';
-    gesture.imageWrapEl.style.transform = `translate(${translateX}px, ${translateY}px,0)`;
+    gesture.imageWrapEl.style.transform = `translate(${translateX}px, ${translateY}px)`;
     gesture.imageEl.style.transitionDuration = '300ms';
-    gesture.imageEl.style.transform = `translate(0,0,0) scale(${zoom.scale})`;
+    gesture.imageEl.style.transform = `translate(0,0) scale(${zoom.scale})`;
   }
   function zoomOut() {
     const zoom = swiper.zoom;
