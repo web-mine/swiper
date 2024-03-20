@@ -203,7 +203,7 @@ export default function Zoom({ swiper, extendParams, on, emit }) {
     if (zoom.scale < params.minRatio) {
       zoom.scale = params.minRatio + 1 - (params.minRatio - zoom.scale + 1) ** 0.5;
     }
-    gesture.imageEl.style.transform = `translate3d(0,0,0) scale(${zoom.scale})`;
+    gesture.imageEl.style.transform = `translate(0,0) scale(${zoom.scale})`;
   }
   function onGestureEnd(e) {
     if (!eventWithinSlide(e)) return;
@@ -224,7 +224,7 @@ export default function Zoom({ swiper, extendParams, on, emit }) {
 
     zoom.scale = Math.max(Math.min(zoom.scale, gesture.maxRatio), params.minRatio);
     gesture.imageEl.style.transitionDuration = `${swiper.params.speed}ms`;
-    gesture.imageEl.style.transform = `translate3d(0,0,0) scale(${zoom.scale})`;
+    gesture.imageEl.style.transform = `translate(0,0) scale(${zoom.scale})`;
     currentScale = zoom.scale;
     isScaling = false;
     if (zoom.scale > 1 && gesture.slideEl) {
@@ -355,7 +355,7 @@ export default function Zoom({ swiper, extendParams, on, emit }) {
     velocity.prevPositionY = image.touchesCurrent.y;
     velocity.prevTime = Date.now();
 
-    gesture.imageWrapEl.style.transform = `translate3d(${image.currentX}px, ${image.currentY}px,0)`;
+    gesture.imageWrapEl.style.transform = `translate(${image.currentX}px, ${image.currentY}px)`;
   }
   function onTouchEnd() {
     const zoom = swiper.zoom;
@@ -394,16 +394,16 @@ export default function Zoom({ swiper, extendParams, on, emit }) {
     image.currentY = Math.max(Math.min(image.currentY, image.maxY), image.minY);
 
     gesture.imageWrapEl.style.transitionDuration = `${momentumDuration}ms`;
-    gesture.imageWrapEl.style.transform = `translate3d(${image.currentX}px, ${image.currentY}px,0)`;
+    gesture.imageWrapEl.style.transform = `translate(${image.currentX}px, ${image.currentY}px)`;
   }
   function onTransitionEnd() {
     const zoom = swiper.zoom;
     if (gesture.slideEl && swiper.activeIndex !== swiper.slides.indexOf(gesture.slideEl)) {
       if (gesture.imageEl) {
-        gesture.imageEl.style.transform = 'translate3d(0,0,0) scale(1)';
+        gesture.imageEl.style.transform = 'translate(0,0) scale(1)';
       }
       if (gesture.imageWrapEl) {
-        gesture.imageWrapEl.style.transform = 'translate3d(0,0,0)';
+        gesture.imageWrapEl.style.transform = 'translate(0,0)';
       }
       gesture.slideEl.classList.remove(`${swiper.params.zoom.zoomedSlideClass}`);
 
@@ -534,9 +534,9 @@ export default function Zoom({ swiper, extendParams, on, emit }) {
       gesture.originY = 0;
     }
     gesture.imageWrapEl.style.transitionDuration = '300ms';
-    gesture.imageWrapEl.style.transform = `translate3d(${translateX}px, ${translateY}px,0)`;
+    gesture.imageWrapEl.style.transform = `translate(${translateX}px, ${translateY}px,0)`;
     gesture.imageEl.style.transitionDuration = '300ms';
-    gesture.imageEl.style.transform = `translate3d(0,0,0) scale(${zoom.scale})`;
+    gesture.imageEl.style.transform = `translate(0,0,0) scale(${zoom.scale})`;
   }
   function zoomOut() {
     const zoom = swiper.zoom;
@@ -567,9 +567,9 @@ export default function Zoom({ swiper, extendParams, on, emit }) {
     zoom.scale = 1;
     currentScale = 1;
     gesture.imageWrapEl.style.transitionDuration = '300ms';
-    gesture.imageWrapEl.style.transform = 'translate3d(0,0,0)';
+    gesture.imageWrapEl.style.transform = 'translate(0,0)';
     gesture.imageEl.style.transitionDuration = '300ms';
-    gesture.imageEl.style.transform = 'translate3d(0,0,0) scale(1)';
+    gesture.imageEl.style.transform = 'translate(0,0) scale(1)';
 
     gesture.slideEl.classList.remove(`${params.zoomedSlideClass}`);
     gesture.slideEl = undefined;
